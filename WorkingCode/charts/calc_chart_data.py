@@ -163,12 +163,7 @@ class CalcData(object):
             y_label = 'Number of Staff'
             objects = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
                        'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
-            data = [self.count_birth_jan, self.count_birth_feb,
-                    self.count_birth_mar, self.count_birth_apr,
-                    self.count_birth_may, self.count_birth_jun,
-                    self.count_birth_jul, self.count_birth_aug,
-                    self.count_birth_sep, self.count_birth_oct,
-                    self.count_birth_nov, self.count_birth_dec]
+            data = self.birthdays
             fig_title = 'Birth Months Chart'
             i.create_bar_chart(title, y_label, objects, data, fig_title)
 
