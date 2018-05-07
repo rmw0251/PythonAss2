@@ -6,7 +6,8 @@ from databases.pickler import Pickler
 
 
 class CompanyDatabase(object):
-    """Class for initializing a new or connect to an existing database."""
+    """Class for initializing a new or
+    connect to an existing database."""
     _connection = None
     _cursor = None
 
@@ -49,8 +50,8 @@ class CompanyDatabase(object):
         try:
             for person in staff:
                 p = Pickler.pickle_data(person)
-                self._cursor.execute("""INSERT INTO Staff (emp_id, gender, 
-                age, sales, bmi, salary, birthday, valid)
+                self._cursor.execute("""INSERT INTO Staff (emp_id, 
+                gender, age, sales, bmi, salary, birthday, valid)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)""", (
                 p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7]))
                 print(count, "Person added")

@@ -57,17 +57,8 @@ class CalcData(object):
     # Rochelle
     # checks data inside file is correct to make a chart
     def is_valid(self, file_contents):
-        """
-        >>> i = CalcData()
-        >>> i.is_valid("A001,gender M,age 52,sales 123,bmi Overweight,salary 50,birthday 23/10/1998,valid 1,")
-        True
-        >>> i.is_valid("a001,M,52,123,Overweight,50,23-10-1998 Z005,F,18,624,Normal,85,25-04-1158 C078,F,35")
-        False
-        >>> i.is_valid("class ErrorHandler(object):  # Claye @staticmethod def get_error_message(error_code, ")
-        False
-        :param file_contents:
-        :return:
-        """
+        # :param file_contents:
+        # :return:
         result = False
         try:
             values = ['gender', 'age', 'birthday', 'bmi', 'sales', 'salary']
@@ -91,12 +82,12 @@ class CalcData(object):
     def calc_pie_gender(self, value):
         if value == 'M':
             self.count_gender_m += 1
-        if value == 'F':
+        elif value == 'F':
             self.count_gender_f += 1
 
     def calc_pie_sales(self, value):
-        sales = int(value)
         try:
+            sales = int(value)
             if 0 <= sales <= 249:
                 self.count_sales_group1 += 1
             elif 250 <= sales <= 499:
@@ -208,7 +199,7 @@ class CalcData(object):
             title = "Gender of Staff"
             window_title = "Gender Pie Graph"
             data = [self.count_gender_f, self.count_gender_m]
-        elif choice == 'sakes':
+        elif choice == 'sales':
             data_labels = "< 250", "250 - 499", "500 - 749", "750 - 999"
             title = "Sales Brackets of Staff"
             window_title = "Sales Brackets of Staff"
@@ -225,5 +216,4 @@ class CalcData(object):
 
 if __name__ == "__main__":
     import doctest
-
     doctest.testmod(verbose=True)

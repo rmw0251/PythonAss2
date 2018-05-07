@@ -13,7 +13,8 @@ class Pickler(object):
             p.append(pickled)
         return p
 
-    @staticmethod  # Claye, Pickles a dict to keep data in key:value pairs
+    @staticmethod  # Claye Pickles a dict to keep
+    # data in key:value pairs
     def pickle_list(data):
         pickled = dumps(data)
         return pickled
