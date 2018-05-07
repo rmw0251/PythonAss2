@@ -3,7 +3,7 @@ import sys
 
 from openpyxl import load_workbook
 
-from data_processor import DataProcessor
+from Program.data_processor import DataProcessor
 from databases.database_sqlite import CompanyDatabase
 from log_file_handler import LogFileHandler
 
@@ -198,18 +198,12 @@ class FileReader(object):  # Claye
                 db_v = item['valid']
                 db_id = keys[count]
                 count += 1
-                if item['gender']:
-                    db_g = item['gender'] + ","
-                if item['age']:
-                    db_a = item['age'] + ","
-                if item['sales']:
-                    db_sale = item['sales'] + ","
-                if item['bmi']:
-                    db_bm = item['bmi'] + ","
-                if item['salary']:
-                    db_sala = item['salary'] + ","
-                if item['birthday']:
-                    db_bi = item['birthday'] + ","
+                db_g = item['gender'] + ","
+                db_a = item['age'] + ","
+                db_sale = item['sales'] + ","
+                db_bm = item['bmi'] + ","
+                db_sala = item['salary'] + ","
+                db_bi = item['birthday'] + ","
 
                 db.insert_staff([(db_id, db_g, db_a, db_sale, db_bm,
                                   db_sala, db_bi, db_v)])

@@ -1,10 +1,10 @@
-from validators.validate_age import ValidateAge as Va
-from validators.validate_bmi import ValidateBmi as Vb
-from validators.validate_date import ValidateDate as Vd
-from validators.validate_emp_id import ValidateEmpId as Ve
-from validators.validate_gender import ValidateGender as Vg
-from validators.validate_salary import ValidateSalary as Vs
-from validators.validate_sales import ValidateSales as Vsa
+from Program.validators.validate_age import ValidateAge as Va
+from Program.validators.validate_bmi import ValidateBmi as Vb
+from Program.validators.validate_date import ValidateDate as Vd
+from Program.validators.validate_emp_id import ValidateEmpId as Ve
+from Program.validators.validate_gender import ValidateGender as Vg
+from Program.validators.validate_salary import ValidateSalary as Vs
+from Program.validators.validate_sales import ValidateSales as Vsa
 
 
 class DataProcessor(object):    # Claye
