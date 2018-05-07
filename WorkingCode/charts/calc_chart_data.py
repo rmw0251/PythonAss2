@@ -116,30 +116,11 @@ class CalcData(object):
     # calculates number of people born in a month
     def calc_bar_birthday(self, value):
         month = value.split('/')[1]
-        if month == '01':
-            self.count_birth_jan += 1
-        elif month == '02':
-            self.count_birth_feb += 1
-        elif month == '03':
-            self.count_birth_mar += 1
-        elif month == '04':
-            self.count_birth_apr += 1
-        elif month == '05':
-            self.count_birth_may += 1
-        elif month == '06':
-            self.count_birth_jun += 1
-        elif month == '07':
-            self.count_birth_jul += 1
-        elif month == '08':
-            self.count_birth_aug += 1
-        elif month == '09':
-            self.count_birth_sep += 1
-        elif month == '10':
-            self.count_birth_oct += 1
-        elif month == '11':
-            self.count_birth_nov += 1
-        elif month == '12':
-            self.count_birth_dec += 1
+        months = ['01', '02', '03', '04', '05', '06',
+                  '07', '08', '09', '10', '11', '12']
+        for x in months:
+            if x == month:
+                self.birthdays[int(x) - 1] += 1
 
     # if person has valid data
     # send to appropriate function depending on their chart choice
@@ -218,10 +199,6 @@ class CalcData(object):
             chart.create_pie_chart(data, attributes)
 
 
-i = CalcData()
-i.calc_bar_birthday("01/10/12")
-i.calc_bar_birthday("01/01/12")
-i.calc_bar_birthday("01/08/12")
-# if __name__ == "__main__":
-#     import doctest
-#     doctest.testmod(verbose=True)
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod(verbose=True)
