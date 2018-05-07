@@ -51,14 +51,18 @@ class CalcData(object):
         self.count_birth_oct = 0
         self.count_birth_nov = 0
         self.count_birth_dec = 0
+        self.birthdays = [self.count_birth_jan, self.count_birth_feb,
+                          self.count_birth_mar, self.count_birth_apr,
+                          self.count_birth_may, self.count_birth_jun,
+                          self.count_birth_jul, self.count_birth_aug,
+                          self.count_birth_sep, self.count_birth_oct,
+                          self.count_birth_nov, self.count_birth_dec]
         self.age_list = []
         self.salary_list = []
 
     # Rochelle
     # checks data inside file is correct to make a chart
     def is_valid(self, file_contents):
-        # :param file_contents:
-        # :return:
         result = False
         try:
             values = ['gender', 'age', 'birthday', 'bmi', 'sales', 'salary']
@@ -214,6 +218,10 @@ class CalcData(object):
             chart.create_pie_chart(data, attributes)
 
 
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)
+i = CalcData()
+i.calc_bar_birthday("01/10/12")
+i.calc_bar_birthday("01/01/12")
+i.calc_bar_birthday("01/08/12")
+# if __name__ == "__main__":
+#     import doctest
+#     doctest.testmod(verbose=True)
