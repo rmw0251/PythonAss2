@@ -28,37 +28,29 @@ class ValidateSales(object):
         self.max_length = 3
 
     def is_valid(self, sales):
-        """
-        >>> i = ValidateSales()
-        >>> i.is_valid("780")
-        ('780', True)
-        >>> i.is_valid(7800)
-        ('7800', False)
-        >>> i.is_valid('  RFGVHJ#$%^&*  67       @#$%^&*(DFGHJ')
-        ('067', True)
-        >>> i.is_valid(' twenty-two ')
-        (' twenty-two ', False)
-        :param sales:
-        :return:
-        """
         result = False
         try:
             if isinstance(sales, int):
                 sales = Wa.to_string(sales, self.min_length)
                 if Va.is_minimum(sales, self.min_sales):
                     result = Va.is_within_length(self.min_length,
-                                                 self.max_length, str(sales))
-            elif isinstance(int(Wa.keep_only_nums(sales)), int):
-                if Wa.strip_string(sales):
-                    sales = Wa.keep_only_nums(sales)
-                    sales = Wa.to_string(sales, self.min_length)
-                    if Va.is_minimum(sales, self.min_sales):
-                        result = Va.is_within_length(self.min_length,
-                                                     self.max_length,
-                                                     str(sales))
+                                                 self.max_length,
+                                                 str(sales))
             else:
-                result = False
+                isinstance(int(Wa.keep_only_nums(sales)), int)
+                Wa.strip_string(sales)
+                sales = Wa.keep_only_nums(sales)
+                sales = Wa.to_string(sales, self.min_length)
+                result = Va.is_within_length(self.min_length,
+                                             self.max_length,
+                                             str(sales))
             return sales, result
         except ValueError:
+            print("Input Value Error!")
             result = False
             return sales, result
+
+
+if __name__ == "__main__":  # pragma: no cover
+    import doctest
+    doctest.testmod(verbose=True)

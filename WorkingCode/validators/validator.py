@@ -18,6 +18,10 @@ class Validator(object):
         True
         >>> Validator.is_within_length(-5, 9999999, '1234')
         True
+        >>> Validator.is_within_length(2, 2, '12')
+        True
+        >>> Validator.is_within_length(2, 2, '100')
+        False
         """
         result = False
 
@@ -104,7 +108,9 @@ class Validator(object):
         """
         >>> Validator.is_minimum(10, 1)
         True
-        >>> Validator.is_minimum(1, 5)
+        >>> Validator.is_minimum(1, 1)
+        True
+        >>> Validator.is_minimum(0, 1)
         False
         """
         result = False

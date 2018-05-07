@@ -60,6 +60,11 @@ class Washer(object):
     # Rochelle
     @staticmethod
     def keep_only_nums(data):
+        """
+        >>> i = Washer()
+        >>> i.keep_only_nums(' RFGVHJ#$%^&*  67       @#$%^&*(DFGHJ ')
+        '67'
+        """
         keep = re.compile(r"[^0-9]")
         data = keep.sub("", data)
         data = data.strip()
@@ -68,6 +73,14 @@ class Washer(object):
     # Rochelle
     @staticmethod
     def strip_string(data):
+        """
+        >>> i = Washer()
+        >>> i.strip_string(' 20 ')
+        '20'
+
+        >>> i.strip_string(' 2 ')
+        '2'
+        """
         data = data.lstrip()
         data = data.rstrip()
         return data
@@ -75,6 +88,17 @@ class Washer(object):
     # Rochelle
     @staticmethod
     def to_string(data, min_length):
+        """
+        >>> i = Washer()
+        >>> i.to_string(20, 2)
+        '20'
+
+        >>> i.to_string(2, 2)
+        '02'
+
+        >>> i.to_string(200, 2)
+        '200'
+        """
         if 0 < len(str(data)) < min_length:
             i = ''
             for num in range(0, min_length - len(str(data))):
