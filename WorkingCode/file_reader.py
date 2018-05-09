@@ -182,7 +182,8 @@ class FileReader(object):  # Claye
             print(Err.get_error_message(103))
 
     # Rochelle
-    def write_to_database(self, dict_valid):  # Rochelle
+    @staticmethod
+    def write_to_database(dict_valid):
 
         db = CompanyDatabase()
         db.create_connection()
