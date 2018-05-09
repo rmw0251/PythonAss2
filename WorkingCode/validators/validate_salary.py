@@ -29,23 +29,12 @@ class ValidateSalary(object):
     def is_valid(self, salary):
         result = False
         try:
-            if isinstance(salary, int):
-                salary = Wa.to_string(salary, self.min_length)
-                if Va.is_minimum(salary, self.min_salary):
-                    result = Va.is_within_length(self.min_length,
-                                                 self.max_length,
-                                                 str(salary))
-            else:
-                isinstance(int(Wa.keep_only_nums(salary)), int)
-                Wa.strip_string(salary)
-                salary = Wa.keep_only_nums(salary)
-                salary = Wa.to_string(salary, self.min_length)
-                result = Va.is_within_length(self.min_length,
-                                             self.max_length,
-                                             str(salary))
+            values = Va.check_valid(salary, self.min_salary, self.min_length, self.max_length)
+            salary = values[0]
+            result = values[1]
             return salary, result
         except ValueError:
-            result = False
+            print("Input Value Error!")
             return salary, result
 
 

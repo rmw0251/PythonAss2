@@ -30,24 +30,12 @@ class ValidateSales(object):
     def is_valid(self, sales):
         result = False
         try:
-            if isinstance(sales, int):
-                sales = Wa.to_string(sales, self.min_length)
-                if Va.is_minimum(sales, self.min_sales):
-                    result = Va.is_within_length(self.min_length,
-                                                 self.max_length,
-                                                 str(sales))
-            else:
-                isinstance(int(Wa.keep_only_nums(sales)), int)
-                Wa.strip_string(sales)
-                sales = Wa.keep_only_nums(sales)
-                sales = Wa.to_string(sales, self.min_length)
-                result = Va.is_within_length(self.min_length,
-                                             self.max_length,
-                                             str(sales))
+            values = Va.check_valid(sales, self.min_sales, self.min_length, self.max_length)
+            sales = values[0]
+            result = values[1]
             return sales, result
         except ValueError:
             print("Input Value Error!")
-            result = False
             return sales, result
 
 
