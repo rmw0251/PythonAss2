@@ -206,8 +206,9 @@ class FileReader(object):  # Claye
                 db_bi = item['birthday']
                 db_v = item['valid']
 
-                db.insert_staff([(db_id, db_g, db_a, db_sale, db_bm,
-                                  db_sala, db_bi, db_v)])
+                staff = {db_id, db_g, db_a, db_sale, db_bm,
+                         db_sala, db_bi, db_v}
+                db.insert_staff([staff])
 
         print(count, "persons added! Congratulations!")
         view_db = input("Do you want to see data saved to database? Y/N >>> ")
