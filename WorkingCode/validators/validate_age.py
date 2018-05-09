@@ -30,9 +30,12 @@ class ValidateAge(object):
         result = False
         try:
             values = Va.check_valid(age, self.min_age, self.min_length, self.max_length)
+            age = values[0]
+            if Va.is_minimum(age, self.min_age):
+                result = values[1]
+            return age, result
         except ValueError:
             print("Input Value Error!")
-            # result = False
             return age, result
 
 
