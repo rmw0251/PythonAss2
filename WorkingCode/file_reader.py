@@ -3,7 +3,7 @@ import sys
 
 from openpyxl import load_workbook
 
-from Program.data_processor import DataProcessor
+from data_processor import DataProcessor
 from databases.database_sqlite import CompanyDatabase
 from log_file_handler import LogFileHandler
 
@@ -194,20 +194,16 @@ class FileReader(object):  # Claye
         data += dict_valid.values()
         count = 0
 
-        dict_staff = {'id': '', 'gender': '', 'age': '', 'sale': '', 'bmi': '', 'salary': '', 'birth': '', 'valid': ''}
-
         for item in data:
             if item['valid'] == '1':
-                for i in dict_staff:
-                    dict_staff[i]
                 db_id = keys[count]
                 count += 1
-                db_g = item['gender'] + ","
-                db_a = item['age'] + ","
-                db_sale = item['sales'] + ","
-                db_bm = item['bmi'] + ","
-                db_sala = item['salary'] + ","
-                db_bi = item['birthday'] + ","
+                db_g = item['gender']
+                db_a = item['age']
+                db_sale = item['sales']
+                db_bm = item['bmi']
+                db_sala = item['salary']
+                db_bi = item['birthday']
                 db_v = item['valid']
 
                 db.insert_staff([(db_id, db_g, db_a, db_sale, db_bm,
