@@ -153,13 +153,7 @@ class CalcData(object):
         if choice == 'bmi':
             CalcData.bar_chart_bmi(self, i)
         elif choice == 'birthday':
-            title = 'Birth Months'
-            y_label = 'Number of Staff'
-            objects = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
-                       'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
-            data = self.birthdays
-            fig_title = 'Birth Months Chart'
-            i.create_bar_chart(title, y_label, objects, data, fig_title)
+            CalcData.bar_chart_birthday(self, i)
 
     def bar_chart_bmi(self, bar):
         title = 'BMI'
@@ -170,6 +164,14 @@ class CalcData(object):
         fig_title = 'BMI Chart'
         bar.create_bar_chart(title, y_label, objects, data, fig_title)
 
+    def bar_chart_birthday(self, bar):
+        title = 'Birth Months'
+        y_label = 'Number of Staff'
+        objects = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
+                   'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
+        data = self.birthdays
+        fig_title = 'Birth Months Chart'
+        bar.create_bar_chart(title, y_label, objects, data, fig_title)
 
     def pie_chart(self, choice):
         chart = ChartPie()
