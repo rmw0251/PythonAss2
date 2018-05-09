@@ -131,8 +131,26 @@ class Validator(object):
             result = True
         return result
 
+    # Rochelle
+    @staticmethod
+    def check_valid(num, min_num, min_length, max_length):
+        if isinstance(num, int):
+            num = Wa.to_string(num, min_length)
+            if Validator.is_minimum(num, min_num):
+                result = Validator.is_within_length(min_length,
+                                                    max_length,
+                                                    str(num))
+        else:
+            isinstance(int(Wa.keep_only_nums(num)), int)
+            Wa.strip_string(num)
+            num = Wa.keep_only_nums(num)
+            num = Wa.to_string(num, min_length)
+            result = Validator.is_within_length(min_length,
+                                                max_length,
+                                                str(num))
+        return num, result
+
 
 if __name__ == "__main__":
     import doctest
-
     doctest.testmod(verbose=True)
