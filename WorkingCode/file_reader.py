@@ -194,6 +194,8 @@ class FileReader(object):  # Claye
         data += dict_valid.values()
         count = 0
 
+        dict_staff = {'id': 0, 'gender': 0, 'age': 0, 'sale': 0, 'bmi': 0, 'salary': 0, 'birth': 0, 'valid': 0}
+
         for item in data:
             if item['valid'] == '1':
                 db_v = item['valid']
@@ -210,9 +212,7 @@ class FileReader(object):  # Claye
                                   db_sala, db_bi, db_v)])
 
         print(count, "persons added! Congratulations!")
-        # Rochelle
         view_db = input("Do you want to see data saved to database? Y/N >>> ")
         if view_db.upper() == "Y":
             db.get_staff()
-
         db.close()
