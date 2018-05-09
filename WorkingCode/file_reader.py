@@ -199,8 +199,7 @@ class FileReader(object):  # Claye
         for item in data:
             if item['valid'] == '1':
                 for i in dict_staff:
-                    dict_staff[i] 
-                db_v = item['valid']
+                    dict_staff[i]
                 db_id = keys[count]
                 count += 1
                 db_g = item['gender'] + ","
@@ -209,6 +208,7 @@ class FileReader(object):  # Claye
                 db_bm = item['bmi'] + ","
                 db_sala = item['salary'] + ","
                 db_bi = item['birthday'] + ","
+                db_v = item['valid']
 
                 db.insert_staff([(db_id, db_g, db_a, db_sale, db_bm,
                                   db_sala, db_bi, db_v)])
