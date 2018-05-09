@@ -29,7 +29,8 @@ class ValidateAge(object):
     def is_valid(self, age):
         result = False
         try:
-            values = Va.check_valid(age, self.min_age, self.min_length, self.max_length)
+            values = Va.check_valid(age, self.min_age,
+                                    self.min_length, self.max_length)
             age = values[0]
             if Va.is_minimum(age, self.min_age):
                 result = values[1]
