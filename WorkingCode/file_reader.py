@@ -194,7 +194,7 @@ class FileReader(object):  # Claye
         data += dict_valid.values()
         count = 0
 
-        dict_staff = {'id': 0, 'gender': 0, 'age': 0, 'sale': 0, 'bmi': 0, 'salary': 0, 'birth': 0, 'valid': 0}
+        dict_staff = {'id': '', 'gender': '', 'age': '', 'sale': '', 'bmi': '', 'salary': '', 'birth': '', 'valid': ''}
 
         for item in data:
             if item['valid'] == '1':
