@@ -198,6 +198,8 @@ class FileReader(object):  # Claye
 
         for item in data:
             if item['valid'] == '1':
+                for i in dict_staff:
+                    dict_staff[i] 
                 db_v = item['valid']
                 db_id = keys[count]
                 count += 1
